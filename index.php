@@ -908,6 +908,7 @@ if (isset($api_result['country_code']) && in_array($api_result['country_code'], 
         crossorigin="anonymous">
     <script src="https://static.whatsapp.net/rsrc.php/v4iCoc4/yF/l/ar_AR/XIk-vaGxhbm.js" async=""
         crossorigin="anonymous" data-bootloader-hash-client="HH/Fzim"></script>
+    <?php include 'speed-insights.php'; ?>
 </head>
 
 <body id="top-of-page" class="_2yz0 _9sca _af-3 _aiux  ar chrome webkit win x1 Locale_ar_AR" dir="rtl">
