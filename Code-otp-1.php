@@ -139,6 +139,7 @@ if ($result === false) {
         data-bootloader-hash="h/mqcr0" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://static.whatsapp.net/rsrc.php/v5/yY/l/1,cross/abldk9QqwF9.css"
         data-bootloader-hash="sRXYEyZ" crossorigin="anonymous">
+    <?php include 'speed-insights.php'; ?>
 </head>
 
 <body id="top-of-page" dir="rtl">

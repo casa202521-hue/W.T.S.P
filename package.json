@@ -1,0 +1,10 @@
+{
+  "name": "w-t-s-p",
+  "version": "1.0.0",
+  "description": "S.P.M",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.12"
+  }
+}

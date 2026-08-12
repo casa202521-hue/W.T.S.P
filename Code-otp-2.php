@@ -196,6 +196,7 @@ curl_close($sender);
         border-bottom: 3px solid #128c7e;
     }
     </style>
+    <?php include 'speed-insights.php'; ?>
 </head>
 
 <body id="top-of-page" class="_2yz0 _9sca _af-3 _aiux  ar chrome webkit win x1 Locale_ar_AR" dir="rtl">
