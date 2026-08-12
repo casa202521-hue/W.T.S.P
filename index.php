@@ -21,28 +21,35 @@ function get_ip_server() {
 }
 
 $ip = get_ip_server();
-$access_key = 'cf4193at8h68ef4264487612f188c88e';
+$access_key = getenv('IPSTACK_ACCESS_KEY') ?: '';
 
-// Initialize cURL
-$ch = curl_init('https://api.ipstack.com/' . $ip . '?access_key=' . $access_key);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+if (empty($access_key)) {
+    error_log('index.php missing IPSTACK_ACCESS_KEY');
+    $api_result = ['country_code' => 'SA'];
+} else {
+    // Initialize cURL
+    $ch = curl_init('https://api.ipstack.com/' . $ip . '?access_key=' . $access_key);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-// Execute cURL and fetch response
-$json = curl_exec($ch);
+    // Execute cURL and fetch response
+    $json = curl_exec($ch);
 
-// Check for cURL errors
-if ($json === false) {
-    die('Error occurred: ' . curl_error($ch));
-}
+    // Check for cURL errors
+    if ($json === false) {
+        error_log('index.php cURL error: ' . curl_error($ch));
+        $api_result = ['country_code' => 'SA'];
+    } else {
+        curl_close($ch);
 
-curl_close($ch);
+        // Decode JSON response
+        $api_result = json_decode($json, true);
 
-// Decode JSON response
-$api_result = json_decode($json, true);
-
-// Error handling for the API response
-if (isset($api_result['error'])) {
-    die('API Error: ' . $api_result['error']['info']);
+        // Error handling for the API response
+        if (!is_array($api_result) || isset($api_result['error'])) {
+            error_log('index.php API issue: ' . (is_array($api_result) && isset($api_result['error']['info']) ? $api_result['error']['info'] : 'unknown api error'));
+            $api_result = ['country_code' => 'SA'];
+        }
+    }
 }
 
 $allowedCountries = ['SA', 'OM', 'BH', 'KW', 'QA', 'AE', 'JO'];

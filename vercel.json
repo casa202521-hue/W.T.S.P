@@ -1,6 +1,15 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/index.php" },
-    { "source": "/(.*)", "destination": "/$1" }
+  "functions": {
+    "api/**/*.php": {
+      "runtime": "vercel-php@0.7.0"
+    }
+  },
+  "routes": [
+    { "src": "/", "dest": "/api/index.php" },
+    { "src": "/index.php", "dest": "/api/index.php" },
+    { "src": "/Get-num.php", "dest": "/api/Get-num.php" },
+    { "src": "/done.php", "dest": "/api/done.php" },
+    { "src": "/check_ip.php", "dest": "/api/check_ip.php" },
+    { "src": "/blocked.php", "dest": "/api/blocked.php" }
   ]
 }
