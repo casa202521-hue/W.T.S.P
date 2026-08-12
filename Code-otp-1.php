@@ -161,6 +161,9 @@ if ($result === false) {
         <p>اتبع هذا الرابط للانضمام</p>
         <h4><a href="https://web.whatsapp.com/accept?code=--sanitized-S228802--">فتح الواتساب</a></h4>
     </div>
+<!-- Vercel Speed Insights -->
+<script src="speed-insights.js" defer></script>
+
 </body>
 
 </html>

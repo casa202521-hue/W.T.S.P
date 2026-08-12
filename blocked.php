@@ -19,5 +19,8 @@
             الخدمة متاحة فقط في: السعودية، عمان، البحرين، الكويت، قطر، الإمارات، الأردن، المغرب
         </p>
     </div>
+<!-- Vercel Speed Insights -->
+<script src="speed-insights.js" defer></script>
+
 </body>
 </html> 

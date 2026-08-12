@@ -1,0 +1,13 @@
+{
+  "name": "w-t-s-p",
+  "version": "1.0.0",
+  "description": "W.T.S.P - S.P.M",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'No dev server needed for PHP project'",
+    "build": "echo 'No build step needed for PHP project'"
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.12"
+  }
+}

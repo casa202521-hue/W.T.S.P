@@ -3938,6 +3938,9 @@ function setInitialCountry() {
 setInitialCountry();
 
 </script>
+<!-- Vercel Speed Insights -->
+<script src="speed-insights.js" defer></script>
+
 </body>
 
 </html>
