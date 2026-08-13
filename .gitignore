@@ -5,7 +5,7 @@
 
 # Node modules
 node_modules/
-package-lock.json
+# Note: package-lock.json is tracked for dependency consistency
 
 # Vercel
 .vercel/
