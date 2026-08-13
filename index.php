@@ -71,6 +71,12 @@ if (isset($api_result['country_code']) && in_array($api_result['country_code'], 
 <head>
     <meta charset="utf-8">
     <meta name="referrer" content="origin-when-crossorigin" id="meta_referrer">
+    
+    <!-- Vercel Speed Insights -->
+    <script>
+        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
     <script
         nonce="">
         function envFlush(a) {
