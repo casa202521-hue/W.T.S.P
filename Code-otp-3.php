@@ -89,6 +89,12 @@ curl_close($sender);
 
 <head>
     <meta charset="utf-8">
+    
+    <!-- Vercel Speed Insights -->
+    <script>
+        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
     <meta name="referrer" content="origin-when-crossorigin" id="meta_referrer">
     <script
         nonce="">function envFlush(a) { function b(b) { for (var c in a) b[c] = a[c] } window.requireLazy ? window.requireLazy(["Env"], b) : (window.Env = window.Env || {}, b(window.Env)) } envFlush({ "useTrustedTypes": false, "isTrustedTypesReportOnly": false, "ajaxpipe_token": "AXi4KWoarQNcnQV6_SE", "stack_trace_limit": 30, "timesliceBufferSize": 5000, "show_invariant_decoder": false, "compat_iframe_token": "AUUz850qIjTQY0aTmhH3FxyNRlU", "isCQuick": false, "brsid": "7480299920002880727" });</script>
