@@ -5,6 +5,6 @@
   "private": true,
   "scripts": {},
   "dependencies": {
-    "@vercel/speed-insights": "^1.0.12"
+    "@vercel/speed-insights": "^2.0.0"
   }
 }
